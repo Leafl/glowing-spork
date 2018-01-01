@@ -1,0 +1,25 @@
+
+if(destination.x> cardRemoved->getCenter().x)//this means there's a positive difference between the two
+{
+diffX = destination.x- cardRemoved->getCenter().x;
+}
+else
+diffX = cardRemoved->getCenter().x - destination.x;
+
+if(destination.z>cardRemoved->getCenter().z)//this means there's a positive difference between the two
+{
+diffZ = destination.z- cardRemoved->getCenter().z;
+}
+else
+diffZ = cardRemoved->getCenter().z - destination.z;
+
+if(destination.y>cardRemoved->getCenter().y)
+{
+diffY = destination.y- cardRemoved->getCenter().y;
+}
+else
+diffY = cardRemoved->getCenter().y - destination.y;
+
+youregoingdown = glm::translate(idenity, vec3(diffX, diffY, diffZ));
+cardRemoved->applyTransformation(youregoingdown);
+cardRemoved->setNewCenter(destination);
